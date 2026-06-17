@@ -1,6 +1,0 @@
-interface:
-  display_name: "Setup Workspace"
-  short_description: "Scaffold an AI-ready work workspace"
-  default_prompt: "Use $setup-workspace to set up my workspace for working with AI agents."
-policy:
-  allow_implicit_invocation: true
