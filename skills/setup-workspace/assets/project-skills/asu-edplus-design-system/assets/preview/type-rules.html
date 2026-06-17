@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Type Rules</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 20px; background: #fff; font-family: Arial, sans-serif; }
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .item { padding: 10px 12px; border: 1px solid #D0D0D0; font-size: 13px; }
+  .item strong { color: #8C1D40; }
+  .ban { color: #B72A2A; }
+  h5 { margin: 0 0 8px; font-size: 14px; }
+</style></head><body>
+<h5>Arial, only. Stack: <code style="font-family:ui-monospace,Menlo,monospace;font-size:11px">Arial, Helvetica, "Nimbus Sans L", sans-serif</code></h5>
+<div class="rules">
+  <div class="item"><strong>Left-align</strong> all text. No center alignment on body.</div>
+  <div class="item"><strong>16 px minimum</strong> body size. 1.5+ line-height.</div>
+  <div class="item"><strong>700 px max</strong> prose column width.</div>
+  <div class="item"><strong>-0.035 em</strong> letter-spacing on headings.</div>
+  <div class="item ban">No <em style="font-style:italic">italics</em> — ever.</div>
+  <div class="item ban">No ALL CAPS in body copy.</div>
+</div>
+</body></html>

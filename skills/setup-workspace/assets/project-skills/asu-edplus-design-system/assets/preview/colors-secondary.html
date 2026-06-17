@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Secondary Colors</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 20px; background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .sw { display: flex; gap: 12px; align-items: center; padding: 8px 10px; border: 1px solid var(--border-default); }
+  .chip { width: 44px; height: 44px; flex: 0 0 44px; }
+  .name { font-weight: 700; font-size: 13px; }
+  .hex { font-size: 11px; color: var(--fg-2); font-family: ui-monospace, Menlo, monospace; }
+  .use { font-size: 11px; color: var(--fg-3); margin-top: 2px; }
+  .note { grid-column: 1 / -1; font-size: 11px; color: var(--fg-3); margin-top: 4px; }
+</style></head><body>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background:#78BE20"></div><div><div class="name">ASU Green</div><div class="hex">#78BE20</div><div class="use">Success / completion</div></div></div>
+  <div class="sw"><div class="chip" style="background:#00A3E0"></div><div><div class="name">ASU Blue</div><div class="hex">#00A3E0</div><div class="use">Links, info</div></div></div>
+  <div class="sw"><div class="chip" style="background:#FF7F32"></div><div><div class="name">ASU Orange</div><div class="hex">#FF7F32</div><div class="use">Warning, attention</div></div></div>
+  <div class="sw"><div class="chip" style="background:#B72A2A"></div><div><div class="name">Error Red</div><div class="hex">#B72A2A</div><div class="use">Error — not maroon</div></div></div>
+  <div class="sw"><div class="chip" style="background:#AF674B"></div><div><div class="name">ASU Copper</div><div class="hex">#AF674B</div><div class="use">Marketing decorative only</div></div></div>
+  <div class="sw"><div class="chip" style="background:#747474"></div><div><div class="name">ASU Gray</div><div class="hex">#747474</div><div class="use">Secondary text, borders</div></div></div>
+  <div class="note">Accents must appear alongside maroon or gold. Never dominant.</div>
+</div>
+</body></html>

@@ -1,0 +1,104 @@
+---
+name: edplus-asu-design-system
+description: >-
+  Apply or audit EdPlus at ASU branding on any visual or front-end work — colors, typography, spacing, components, accessibility. Use this skill WHENEVER you create or review an artifact, prototype, web page, dashboard, slide deck, report, email, poster, or any UI/asset that should look like it belongs to ASU / EdPlus, AND whenever someone asks to "make this on-brand," "match ASU branding," "review this design," "check our styling," or fix colors/fonts/spacing/components. The brand assets (ASU Arial fonts, logos, color/type tokens, full design-system reference) are bundled inside this skill, so use it even when no brand files are attached. Two modes: CREATE (build new on-brand work) and REVIEW (audit existing work and list specific styling/typography/spacing/component/accessibility issues to fix).
+metadata:
+  version: 1.0.0
+---
+
+# EdPlus at ASU — Design System Skill
+
+This skill makes any output look and behave like an official ASU / EdPlus product, and lets you audit existing work against the standard. Everything you need is **bundled in this skill** — fonts, logos, CSS tokens, and the full design-system reference — so you never depend on the user having brand files.
+
+## Brand hierarchy (why these rules are firm)
+ASU → Unity Design System (UDS, the enterprise web standard) → EdPlus. These rules aren't stylistic preferences; they're university brand compliance. `brandguide.asu.edu` is the ultimate source of truth. When in doubt, comply with ASU/UDS — EdPlus guidance only *adds* on top.
+
+## Bundled assets (use these directly)
+- `assets/colors_and_type.css` — drop-in CSS with `@font-face` declarations + all color/type/spacing tokens as CSS variables. Link or inline this in any HTML/prototype so it renders with exact brand metrics.
+- `assets/fonts/` — the canonical Arial family (regular/bold/italic/narrow/light/black). Ship these so output renders correctly even where system Arial is absent (Linux, canvas/video export, embedded readers).
+- `assets/logos/` — `asu-logo-horizontal.webp`, `asu-logo-vertical.webp`, `edplus-at-asu-wordmark.svg`, `footer-rank.webp`. Logos must always be white on the maroon header; never recolor or distort them.
+- `assets/preview/` — rendered HTML swatches/specimens (colors, type scale, spacing, radii, shadows, buttons). Open these to *see* the system or to copy exact values.
+- `assets/ui_kits/edplus/index.html` — the **living UI kit**: a single self-contained HTML page that renders the whole design system (tokens + components) in context. Open it to see how everything looks together, and use it as the **reference implementation** when building HTML/prototypes — copy its markup, classes, and inline styles so new work matches the system exactly.
+- `references/design-system.md` — the **full v1.0 spec** (brand context, every token, components, accessibility, content/voice). Read it when you need detail beyond the quick reference below, or for any component not covered here.
+
+## Decide the mode
+- **CREATE** — building something new (artifact, prototype, slide, report, page, asset). Apply the system as you go.
+- **REVIEW** — auditing something that exists (a codebase, screenshot, mockup, doc). Find what's off-brand and say exactly how to fix it.
+
+---
+
+## Quick reference (the high-frequency rules)
+
+Use this for the common case. For anything not here, open `references/design-system.md`.
+
+### Color
+| Use | Color | Hex |
+|---|---|---|
+| Primary actions, brand, headers | ASU Maroon | `#8C1D40` |
+| Accent / highlight (never the lead) | ASU Gold | `#FFC627` |
+| Links in body content | ASU Blue | `#00A3E0` |
+| Success | ASU Green | `#78BE20` |
+| Warning | ASU Orange | `#FF7F32` |
+| **Error (border + icon)** | Error Red | `#B72A2A` (NOT maroon) |
+| Body text | Gray 1 | `#191919` |
+| Page background | Gray 7 | `#F5F5F5` |
+
+- **Maroon leads, gold accents.** Gold is never the dominant color on a screen.
+- **Never gold text on white** (fails contrast) and **never maroon text on black**.
+- Secondary colors only appear *alongside* maroon or gold.
+
+### Typography
+- **Arial only.** `font-family: Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;` No serif/script/decorative fonts — not even in images/video.
+- Body copy ≥ **16px / 1rem**; line-height ≥ 1.5; prose max width **700px**.
+- Headings bold (700), letter-spacing -0.035em. Scale: H1 48 / H2 36 / H3 28 / H4 22 / H5 18px.
+- **Left-align body text** (no centering). **No italics.** **No ALL CAPS** in body (UI labels only). Emphasis = bold.
+
+### Spacing & layout
+- Spacing is **multiples of 8px** (4, 8, 16, 24, 32, 48, 64, 96).
+- 12-column grid, 24px gutter, 1200px container max. Mobile-first, responsive, no horizontal scroll.
+- Full-width sections: 96px top/bottom padding. Card grids: 3 / 2 / 1 columns (desktop/tablet/mobile).
+
+### Shape language (distinctive — get this right)
+- **Buttons are pill-shaped:** `border-radius: 9999px` on *every* button size.
+- **Everything else is rounded-none:** `border-radius: 0` on cards, containers, inputs, textareas, selects, modals, tooltips, label chips, eyebrows.
+- **Exception:** decorative icon / step-number containers are **circles** (`border-radius: 50%`) — never rounded squares.
+
+### Components (essentials)
+- **Primary button:** maroon bg, white text, pill, hover = 10% darker maroon; one per view.
+- **Secondary button:** transparent, 2px maroon border, maroon text, pill; hover fills maroon.
+- **Gold button:** gold bg, Gray 1 text (never white), pill; marketing only, not functional UI.
+- **Inputs:** ≥44px tall, radius 0, label *above* (not placeholder-only), errors below in `#B72A2A`.
+- **Cards:** white/Gray 7 bg, 1px Gray 5 border, radius 0, shadow `0 2px 8px rgba(0,0,0,0.08)`, 24px padding, 16:9 imagery.
+- **Header:** maroon bg, white ASU logo left. **Footer:** Gray 1 bg, white logo, ranked graphic, ASU footer/legal links, Gray 4 social icons. On asu.edu, the UDS Header/Footer are mandatory.
+- **Icons:** Font Awesome (free) only; always paired with a label or `aria-label`; ≥44×44px touch target.
+
+### Accessibility (WCAG 2.1 AA — enforced on internal tools too)
+Contrast ≥ 4.5:1 (normal) / 3:1 (large). Visible focus states. Full keyboard operability. Alt text on informational images (`alt=""` for decorative). Labels on every field. Errors in text, not color alone. Respect `prefers-reduced-motion`. Captions on video. **No accessibility overlays** (AccessiBe/UserWay) — they're prohibited. Note: automated tools catch <25% of issues, so reason through manual checks too.
+
+### Voice (for any copy you write)
+Plain language, active voice, second person ("you'll learn"), be direct, explain jargon. No italics, no ALL CAPS in body. Note formats on links ("Download the syllabus (PDF)").
+
+---
+
+## CREATE workflow
+1. Identify context: learner-facing / internal tool / marketing? audience? goal? mobile or desktop?
+2. For HTML/prototypes, link or inline `assets/colors_and_type.css` and reference the bundled fonts so it renders true-to-brand.
+3. Build with the tokens above: maroon-led palette, Arial, 8px spacing, pill buttons + rounded-none containers, card patterns, mandatory header/footer on asu.edu pages.
+4. Self-check against the Accessibility list and the **Don'ts** before finishing.
+5. For non-web outputs (slides, reports, posters), apply the same colors, Arial, spacing, and logo rules; use maroon for emphasis and gold sparingly.
+
+## REVIEW workflow
+When auditing existing work, produce a findings list grouped by category. For each issue give: **what's wrong → the rule → the fix (with the exact token/value)**, and flag severity (brand-compliance vs. polish). Check in this order:
+1. **Color** — off-palette hex values; gold misused as lead or on white; maroon used for errors; non-AA contrast.
+2. **Typography** — non-Arial fonts; body < 16px; centered body; italics; ALL CAPS; prose wider than 700px.
+3. **Spacing** — values off the 8px scale; cramped touch targets (<44px).
+4. **Shape** — non-pill buttons; rounded corners on cards/inputs/containers; rounded-square icon containers.
+5. **Components** — buttons/inputs/cards/header/footer deviating from spec; multiple primary buttons per view.
+6. **Accessibility** — missing labels, alt text, focus states; color-only error signaling; overlays present.
+End with a short prioritized fix list (highest-impact brand/accessibility issues first).
+
+## The Don'ts (instant red flags in review)
+Fonts other than Arial · gold text on white · maroon text on black · centered body text · italics · custom icon sets · accessibility overlays · text baked into images · border-radius on cards/containers/inputs/modals/tooltips · square/rounded-square icon containers (use circles) · maroon (`#8C1D40`) for error states (use `#B72A2A`).
+
+---
+*EdPlus at ASU Design System v1.0 (POC). Brand source of truth: brandguide.asu.edu · unity.web.asu.edu. Re-version this skill when the brand updates.*

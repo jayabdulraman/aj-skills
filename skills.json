@@ -1,0 +1,63 @@
+{
+  "name": "aj-skills",
+  "description": "Reusable Agent Skills for Codex, Claude Code, Cursor, and other SKILL.md-compatible coding agents.",
+  "repository": "https://github.com/jayabdulraman/aj-skills",
+  "default_branch": "main",
+  "format": {
+    "standard": "Agent Skills",
+    "specification": "https://agentskills.io/specification",
+    "entrypoint": "SKILL.md"
+  },
+  "install": {
+    "script": "scripts/install-skill.sh",
+    "raw_script_url": "https://raw.githubusercontent.com/jayabdulraman/aj-skills/main/scripts/install-skill.sh",
+    "default_targets": {
+      "codex": {
+        "user": "~/.agents/skills",
+        "project": ".agents/skills"
+      },
+      "claude": {
+        "user": "~/.claude/skills",
+        "project": ".claude/skills"
+      },
+      "cursor": {
+        "user": "~/.cursor/skills",
+        "project": ".cursor/skills"
+      }
+    }
+  },
+  "skills": [
+    {
+      "name": "brainstorm",
+      "path": "skills/brainstorm",
+      "entrypoint": "skills/brainstorm/SKILL.md",
+      "url": "https://github.com/jayabdulraman/aj-skills/tree/main/skills/brainstorm",
+      "raw_entrypoint_url": "https://raw.githubusercontent.com/jayabdulraman/aj-skills/main/skills/brainstorm/SKILL.md",
+      "description": "Activates a focused brainstorm mode for back-and-forth thinking sessions. Use when the user wants to think through a problem, generate ideas, explore options, plan something, or reach a decision collaboratively."
+    },
+    {
+      "name": "illustrations",
+      "path": "skills/illustrations",
+      "entrypoint": "skills/illustrations/SKILL.md",
+      "url": "https://github.com/jayabdulraman/aj-skills/tree/main/skills/illustrations",
+      "raw_entrypoint_url": "https://raw.githubusercontent.com/jayabdulraman/aj-skills/main/skills/illustrations/SKILL.md",
+      "description": "Generate Ian-style English article illustrations. Use when the user wants absurd, clean, hand-drawn inline illustrations, article art, blog visuals, Notion visuals, workflow visuals, methodology visuals, metaphor sketches, shot lists, or image edits/removing titles."
+    },
+    {
+      "name": "setup-workspace",
+      "path": "skills/setup-workspace",
+      "entrypoint": "skills/setup-workspace/SKILL.md",
+      "url": "https://github.com/jayabdulraman/aj-skills/tree/main/skills/setup-workspace",
+      "raw_entrypoint_url": "https://raw.githubusercontent.com/jayabdulraman/aj-skills/main/skills/setup-workspace/SKILL.md",
+      "description": "Set up a customizable local project workspace for a knowledge worker so any AI agent can work alongside them. Use only when the user explicitly asks to set up, scaffold, or reorganize a workspace for human-agent collaboration."
+    },
+    {
+      "name": "to-prd",
+      "path": "skills/to-prd",
+      "entrypoint": "skills/to-prd/SKILL.md",
+      "url": "https://github.com/jayabdulraman/aj-skills/tree/main/skills/to-prd",
+      "raw_entrypoint_url": "https://raw.githubusercontent.com/jayabdulraman/aj-skills/main/skills/to-prd/SKILL.md",
+      "description": "Turn the current conversation context into a PRD and publish it to the project issue tracker. Use when the user wants to create a PRD from the current context."
+    }
+  ]
+}

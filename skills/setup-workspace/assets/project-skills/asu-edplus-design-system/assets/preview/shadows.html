@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Shadows</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 28px; background: #F5F5F5; font-family: Arial, sans-serif; }
+  .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card { background: #fff; padding: 18px; border: 1px solid #D0D0D0; }
+  .lbl { font-weight: 700; font-size: 13px; }
+  .val { font-size: 10px; font-family: ui-monospace, Menlo, monospace; color: #4D4D4D; margin-top: 4px; }
+  .rest { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .hov  { box-shadow: 0 4px 16px rgba(0,0,0,0.14); }
+  .mod  { box-shadow: 0 12px 32px rgba(0,0,0,0.22); }
+</style></head><body>
+<div class="row">
+  <div class="card rest"><div class="lbl">Card — rest</div><div class="val">0 2px 8px rgba(0,0,0,0.08)</div></div>
+  <div class="card hov"><div class="lbl">Card — hover</div><div class="val">0 4px 16px rgba(0,0,0,0.14)</div></div>
+  <div class="card mod"><div class="lbl">Modal</div><div class="val">0 12px 32px rgba(0,0,0,0.22)</div></div>
+</div>
+</body></html>

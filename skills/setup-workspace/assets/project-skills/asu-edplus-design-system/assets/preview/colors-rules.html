@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Color Rules</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 20px; background: #fff; font-family: Arial, sans-serif; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tile { padding: 16px; border: 1px solid #D0D0D0; }
+  .tile h5 { margin: 0 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .ok { border-left: 4px solid #78BE20; }
+  .bad { border-left: 4px solid #B72A2A; }
+  .sample { padding: 10px; margin-top: 6px; font-size: 14px; font-weight: 700; }
+  .lbl { font-size: 11px; color: #4D4D4D; margin-top: 6px; }
+</style></head><body>
+<div class="row">
+  <div class="tile ok">
+    <h5>Do</h5>
+    <div class="sample" style="background:#FFFFFF;color:#8C1D40;border:1px solid #D0D0D0">Maroon text on white</div>
+    <div class="sample" style="background:#8C1D40;color:#FFC627">Gold text on maroon</div>
+    <div class="lbl">Meets WCAG 2.1 AA contrast.</div>
+  </div>
+  <div class="tile bad">
+    <h5>Don't</h5>
+    <div class="sample" style="background:#FFFFFF;color:#FFC627">Gold text on white</div>
+    <div class="sample" style="background:#000000;color:#8C1D40">Maroon on black</div>
+    <div class="lbl">Fails contrast. Use Gray 1 or Maroon on white instead.</div>
+  </div>
+</div>
+</body></html>

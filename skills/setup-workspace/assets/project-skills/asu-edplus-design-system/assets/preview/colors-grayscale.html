@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Grayscale</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { padding: 20px; background: #fff; }
+  .row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; border: 1px solid var(--border-default); }
+  .cell { padding: 14px 8px; text-align: center; }
+  .label { font-size: 11px; font-weight: 700; margin-top: 8px; }
+  .hex { font-size: 10px; font-family: ui-monospace, Menlo, monospace; opacity: 0.8; }
+  .sub { margin-top: 14px; font-size: 12px; color: var(--fg-3); }
+</style></head><body>
+<div class="row">
+  <div class="cell" style="background:#191919;color:#fff"><div class="label">Gray 1</div><div class="hex">#191919</div></div>
+  <div class="cell" style="background:#333;color:#fff"><div class="label">Gray 2</div><div class="hex">#333333</div></div>
+  <div class="cell" style="background:#4D4D4D;color:#fff"><div class="label">Gray 3</div><div class="hex">#4D4D4D</div></div>
+  <div class="cell" style="background:#BFBFBF;color:#191919"><div class="label">Gray 4</div><div class="hex">#BFBFBF</div></div>
+  <div class="cell" style="background:#D0D0D0;color:#191919"><div class="label">Gray 5</div><div class="hex">#D0D0D0</div></div>
+  <div class="cell" style="background:#E8E8E8;color:#191919"><div class="label">Gray 6</div><div class="hex">#E8E8E8</div></div>
+  <div class="cell" style="background:#F5F5F5;color:#191919;border-left:1px solid #D0D0D0"><div class="label">Gray 7</div><div class="hex">#F5F5F5</div></div>
+</div>
+<div class="sub">UDS 7-step scale. Gray 1 = functional black (body text). Gray 7 = functional white (page bg).</div>
+</body></html>

@@ -1,0 +1,20 @@
+# Dependencies & build artifacts — regenerable, keep OUT of cloud sync
+node_modules/
+**/node_modules/
+.venv/
+**/.venv*/
+dist/
+build/
+.cache/
+__pycache__/
+
+# Secrets — never sync
+.env
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+
+# NOTE: do NOT ignore .claude/, .agents/, or .cursor/ — project skills live in
+# .claude/skills/, .agents/skills/, and .cursor/skills/ and must be committed so they
+# travel with the workspace and stay discoverable by every agent (Claude, Codex, Cursor).
