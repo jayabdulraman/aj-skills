@@ -2,25 +2,54 @@
 
 Reusable Agent Skills for Codex, Claude Code, Cursor, and other tools that understand the open `SKILL.md` skill format.
 
-## Install With Your Agent
+## Prompt: Install All Skills
 
-Give your coding agent this repo link:
+Copy this prompt into Codex, Claude Code, Cursor, or another coding agent:
 
 ```text
+Install all skills from this Agent Skills repository:
 https://github.com/jayabdulraman/aj-skills
+
+Please:
+1. Read README.md and skills.json first.
+2. Install every skill listed in skills.json.
+3. Install at user scope for the agent I am currently using.
+4. Preserve each entire skill folder exactly, including SKILL.md, references, assets, scripts, and agents metadata.
+5. If you can run shell commands, use scripts/install-skill.sh. If not, manually copy each skills/<skill-name>/ folder into the correct user skills directory.
+6. Tell me which skills were installed and where.
 ```
 
-Then ask:
+## Prompt: Install One Skill
+
+Replace `setup-workspace` with any skill name from the catalog:
 
 ```text
-Install the skills from https://github.com/jayabdulraman/aj-skills.
-Read README.md and skills.json, then install all skills for my agent at user scope.
-Preserve each skill folder exactly, including SKILL.md, references, assets, scripts, and agents metadata.
+Install only the setup-workspace skill from this Agent Skills repository:
+https://github.com/jayabdulraman/aj-skills
+
+Please:
+1. Read README.md and skills.json first.
+2. Find the setup-workspace entry in skills.json.
+3. Install only skills/setup-workspace.
+4. Install at user scope for the agent I am currently using.
+5. Preserve the entire setup-workspace folder exactly, including SKILL.md, references, assets, scripts, and agents metadata.
+6. If you can run shell commands, use scripts/install-skill.sh setup-workspace. If not, manually copy skills/setup-workspace/ into the correct user skills directory.
+7. Tell me where setup-workspace was installed.
 ```
 
-To install a single skill, replace `all skills` with a skill name such as `brainstorm`, `illustrations`, `setup-workspace`, or `to-prd`.
+Available skill names are `brainstorm`, `illustrations`, `setup-workspace`, and `to-prd`.
 
-## Command Line Install
+## User Skill Directories
+
+If the agent installs manually, use the directory for the current tool:
+
+| Agent | User scope directory |
+| --- | --- |
+| Codex | `~/.agents/skills/<skill-name>/` |
+| Claude Code | `~/.claude/skills/<skill-name>/` |
+| Cursor | `~/.cursor/skills/<skill-name>/` |
+
+## Install All Skills From The Command Line
 
 From a clone:
 
@@ -37,12 +66,32 @@ curl -fsSL https://raw.githubusercontent.com/jayabdulraman/aj-skills/main/script
 bash /tmp/aj-skills-install.sh all --agent all --scope user
 ```
 
-Useful examples:
+## Install One Skill From The Command Line
+
+From a clone, pass the skill name instead of `all`:
+
+```bash
+./scripts/install-skill.sh setup-workspace --agent all --scope user
+```
+
+Install one skill for a specific agent:
 
 ```bash
 ./scripts/install-skill.sh brainstorm --agent codex --scope user
-./scripts/install-skill.sh setup-workspace --agent claude --scope project
-./scripts/install-skill.sh illustrations --target ~/.agents/skills
+./scripts/install-skill.sh setup-workspace --agent claude --scope user
+./scripts/install-skill.sh illustrations --agent cursor --scope user
+```
+
+Install one skill into a project or custom directory:
+
+```bash
+./scripts/install-skill.sh setup-workspace --agent all --scope project
+./scripts/install-skill.sh setup-workspace --target ~/.agents/skills
+```
+
+List available skills:
+
+```bash
 ./scripts/install-skill.sh --list
 ```
 
